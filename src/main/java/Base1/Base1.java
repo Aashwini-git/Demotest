@@ -1,0 +1,38 @@
+package Base1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Base1 {
+	
+	public static String Browser = "chrome";
+	public static String URL = "";
+	public static WebDriver driver;
+	
+	public static void browserinitilization(String Browser, String URL) 
+	{
+		switch(Browser)
+		{
+		case"chrome":
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
+			driver.get("https://login.suas.ac.in/");
+			break;
+			
+		case"IE":
+			WebDriverManager.iedriver().setup();
+			driver = new EdgeDriver();
+			break;
+		}
+	}
+	
+	public static void close_browser()
+	{
+		driver.close();
+	}
+	
+
+}
